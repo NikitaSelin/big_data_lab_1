@@ -42,7 +42,7 @@ options {
 
     post {
         always {
-            sh 'docker stop big_data_lab_1 && docker logout'
+            sh 'docker stop big_data_lab_1 && docker remove big_data_lab_1 && docker logout'
         }
     }
 }
