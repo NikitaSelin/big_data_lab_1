@@ -39,7 +39,14 @@ options {
         }
         stage('Create and run docker container') {
             steps {
-                sh 'cd big_data_lab_1 && docker compose up -d'
+                try {
+                    timeout(1000, unit: SECONDS) {
+                        sh 'cd big_data_lab_1 && docker compose up -d'
+                    }
+                } catch(e) {
+                    sh "docker stop big_data_lab_1"
+                    sh "docker wait big_data_lab_1"
+                }
             }
         }
 
