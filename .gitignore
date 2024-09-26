@@ -163,3 +163,4 @@ cython_debug/
 
 *.joblib
 *.sav
+README.pdf
